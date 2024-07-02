@@ -1,0 +1,34 @@
+import React from "react";
+import { ProfileHold } from "./Profile.styles";
+import BG from "../../../assets/profile/bgimg.png";
+import Logo from "../../../assets/profile/profileimg.png";
+import stars from "../../../assets/profile/stars.png";
+import Button from '../../Button'
+const Profile = () => {
+  return (
+    <ProfileHold>
+      <div className="bgImg">
+        <img src={BG} alt="background" />
+      </div>
+      <div className="logo">
+        <figure>
+          <img src={Logo} alt="logo" />
+        </figure>
+      </div>
+      <div className="textxWrap">
+        <div className="text">
+          <h2>Rahul Wagh</h2>
+          <p>Talent Management Sessions</p>
+          <strong>Human Rights | Women Empowerment</strong>
+        </div>
+      </div>
+     <div className="btn">
+     <Button width = "208px">Edit Profile </Button>
+     <Button width = "208px" type="outline">Create Sessions </Button>
+     <Button width = "208px" type="outline">Manage Calendar </Button>
+     </div>
+    </ProfileHold>
+  );
+};
+
+export default Profile;
