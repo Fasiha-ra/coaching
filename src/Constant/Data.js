@@ -58,7 +58,19 @@ export const Experiencedata = [
 export const CertificateData = [
   {
     img: certificate,
-    title: "UX Design Fundamentals.pdf",
+    title: "1-UX Design Fundamentals.pdf",
+  },
+  {
+    img: certificate,
+    title: "2-UX Design Fundamentals.pdf",
+  },
+  {
+    img: certificate,
+    title: "3-UX Design Fundamentals.pdf",
+  },
+  {
+    img: certificate,
+    title: "4-UX Design Fundamentals.pdf",
   },
   {
     img: certificate,
@@ -102,6 +114,16 @@ export const TrendingSessionData = [
   },
 ];
 export const MeetingData = [
+  {
+    title: "Tech Stack Specialization & Work-like Develop..By",
+    name: "Sarah Connor",
+  },
+];
+export const RequestMeetingData = [
+  {
+    title: "Tech Stack Specialization & Work-like Develop..By",
+    name: "Sarah Connor",
+  },
   {
     title: "Tech Stack Specialization & Work-like Develop..By",
     name: "Sarah Connor",

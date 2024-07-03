@@ -30,4 +30,15 @@ export const GroupSessionWrap = styled.div`
       }
     }
   }
+  .flex{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    .timeWrap{
+      display: block ;
+      .time{
+        padding-bottom: 10px;
+      }
+    }
+  }
 `;

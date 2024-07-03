@@ -39,7 +39,7 @@ export const StyledTexfield = styled.div`
   textarea {
     font-size: 16px;
     font-weight: 300;
-    background-color: rgba(255, 255, 255, 0.37);
+    background-color: transparent;
     height: 96px;
     width: 100%;
     border: none;

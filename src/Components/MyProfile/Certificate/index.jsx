@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { CertiWrapper } from "./Certificate.styles";
 import { CertificateData } from "../../../Constant/Data";
 import prev from "../../../assets/profile/prev.png";
@@ -7,6 +7,42 @@ import { TbPencil } from "react-icons/tb";
 import { FaPlus } from "react-icons/fa6";
 
 const Certificate = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(window.innerWidth <= 768 ? 1 : 3);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prevIndex) => Math.max(prevIndex - itemsPerPage, 0));
+    }
+  };
+
+  const handleNext = () => {
+    if (currentIndex + itemsPerPage < CertificateData.length) {
+      setCurrentIndex((prevIndex) =>
+        Math.min(prevIndex + itemsPerPage, CertificateData.length - itemsPerPage)
+      );
+    }
+  };
+
+  const currentItems = CertificateData.slice(
+    currentIndex,
+    currentIndex + itemsPerPage
+  );
+
   return (
     <CertiWrapper>
       <div className="wrapper">
@@ -18,11 +54,14 @@ const Certificate = () => {
           </div>
         </div>
         <div className="cardWrap">
-          <figure>
+          <figure
+            onClick={handlePrev}
+            style={{ cursor: currentIndex === 0 ? "not-allowed" : "pointer" }}
+          >
             <img src={prev} alt="prev icon" />
           </figure>
           <div className="cardHolder">
-            {CertificateData.map((val, ind) => (
+            {currentItems.map((val, ind) => (
               <div className="card" key={ind}>
                 <figure>
                   <img src={val.img} alt="certificate" />
@@ -31,7 +70,15 @@ const Certificate = () => {
               </div>
             ))}
           </div>
-          <figure>
+          <figure
+            onClick={handleNext}
+            style={{
+              cursor:
+                currentIndex + itemsPerPage >= CertificateData.length
+                  ? "not-allowed"
+                  : "pointer",
+            }}
+          >
             <img src={nextt} alt="next icon" />
           </figure>
         </div>

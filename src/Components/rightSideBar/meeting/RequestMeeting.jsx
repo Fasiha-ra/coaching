@@ -1,11 +1,11 @@
 import React from "react";
 import { GroupSessionWrap } from "./GroupSession.styles";
 import { IoIosArrowForward } from "react-icons/io";
-import { MeetingData } from "../../Constant/Data";
+import { RequestMeetingData } from "../../../Constant/Data";
 import clock from "../../../assets/profile/time.png";
 import calendar from "../../../assets/profile/calendar.png";
 import Button from "../../Button";
-const Meeting = () => {
+const RequestMeeting = () => {
   return (
     <GroupSessionWrap>
       <div className="wrapper">
@@ -15,7 +15,7 @@ const Meeting = () => {
             <IoIosArrowForward />
           </div>
         </div>
-        {MeetingData.map((value, index) => (
+        {RequestMeetingData.map((value, index) => (
           <div className="groupHolder" key={index}>
             <h5>
               {value.title} <span>{value.name}</span>
@@ -42,4 +42,4 @@ const Meeting = () => {
   );
 };
 
-export default Meeting;
+export default RequestMeeting;

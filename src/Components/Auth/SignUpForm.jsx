@@ -13,8 +13,9 @@ const SignUpForm = () => {
   const handleModal = () => {
     setOnSubmit(true);
   };
-  const clickHandler = () => {
-    navigate("/profile");
+  const clickHandler = (e) => {
+    e.preventDefault();
+    navigate("/UpdatedProfile");
   };
   const [formData, setFormData] = useState({
     firstName: "",

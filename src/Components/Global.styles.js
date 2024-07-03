@@ -268,4 +268,10 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 }
+.info{
+  .heading{
+    font-size: 20px;
+    margin: 20px 0;
+  }
+}
 `;

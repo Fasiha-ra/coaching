@@ -8,6 +8,16 @@ import { AuthProvider } from "./Components/Context/Context";
 import SignUpForm from "./Components/Auth/SignUpForm";
 import AdminLayout from "./Components/AdminLayout";
 import MyProfile from "./Components/MyProfile";
+import UpdatedProfile from "./Components/Auth/UpdatedProfile";
+import ProfileLayout from "./Components/ProfileLayout";
+import EditProfile from "./Components/EditProfile/EditProfile";
+import About from "./Components/EditProfile/About";
+import ProfileSkills from "./Components/EditProfile/ProfileSkills";
+import Experience from "./Components/EditProfile/Experience";
+import Education from "./Components/EditProfile/Education";
+import Certificate from "./Components/EditProfile/Certificate";
+import ChangePassword from "./Components/EditProfile/ChangePassword";
+import ForgotPassword from "./Components/EditProfile/ChangePassword/ForgotPassword";
 const App = () => {
   return (
     <>
@@ -19,8 +29,19 @@ const App = () => {
             <Route path="/password" element={<Password />} />
             <Route path="/otp" element={<OTP />} />
             <Route path="/signupform" element={<SignUpForm />} />
+            <Route path="/UpdatedProfile" element={<UpdatedProfile />} />
             <Route path="/" element={<AdminLayout />}>
               <Route path="/Profile" element={<MyProfile />} />
+            </Route>
+            <Route path="/" element={<ProfileLayout />}>
+              <Route path="/editprofile" element={<EditProfile />} />
+              <Route path="/About" element={<About />} />
+              <Route path="/ProfileSkills" element={<ProfileSkills />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/certificates" element={<Certificate />} />
+              <Route path="/setting" element={<ChangePassword />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
             </Route>
           </Routes>
         </BrowserRouter>

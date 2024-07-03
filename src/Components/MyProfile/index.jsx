@@ -1,9 +1,6 @@
 import React from "react";
 import { ProfileWrapper } from "./Profile.styles";
 import RightSideBar from "../rightSideBar";
-// import Comment from "../rightSideBar/Comment";
-// import Blog from "../rightSideBar/Blog";
-// import UpgradeCourse from "../Sidebar/UpgradeCourse";
 import Profile from "./Profile";
 import Rating from "./Rating";
 import About from "./About";
@@ -17,7 +14,7 @@ import UpgradeCourse from "../../Components/rightSideBar/UpgradeCourse";
 import TrendingSession from "../rightSideBar/TrendingSession";
 import { TrendingSessionData } from "../../Constant/Data";
 import Meeting from "../rightSideBar/meeting";
-import RequestMeeting from "../rightSideBar/meeting";
+import RequestMeeting from "../rightSideBar/meeting/RequestMeeting";
 const MyProfile = () => {
   return (
     <ProfileWrapper>

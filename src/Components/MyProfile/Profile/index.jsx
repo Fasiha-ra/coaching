@@ -4,7 +4,13 @@ import BG from "../../../assets/profile/bgimg.png";
 import Logo from "../../../assets/profile/profileimg.png";
 import stars from "../../../assets/profile/stars.png";
 import Button from '../../Button'
+import { useNavigate } from "react-router-dom";
+
 const Profile = () => {
+  const navigate= useNavigate();
+  const editProfile = () =>{
+    navigate("/EditProfile")
+  }
   return (
     <ProfileHold>
       <div className="bgImg">
@@ -23,7 +29,7 @@ const Profile = () => {
         </div>
       </div>
      <div className="btn">
-     <Button width = "208px">Edit Profile </Button>
+     <Button width = "208px" onClick={editProfile}>Edit Profile </Button>
      <Button width = "208px" type="outline">Create Sessions </Button>
      <Button width = "208px" type="outline">Manage Calendar </Button>
      </div>
