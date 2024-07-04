@@ -1,6 +1,7 @@
 import ratingIcon from "../../src/assets/profile/blogLogo.png";
 import certificate from "../../src/assets/profile/certificate.png";
 import img1 from "../../src/assets/profile/trending.png";
+import TicketImg from "../assets/support/support.png"
 export const RatingData = [
   {
     img: ratingIcon,
@@ -129,3 +130,51 @@ export const RequestMeetingData = [
     name: "Sarah Connor",
   },
 ];
+export const TicketData = [
+  {
+    img: TicketImg,
+    title: "System Issue",
+    id: "Ticket id : #ASDFGHJLB",
+    date: "02 Apr 2024, 5:60 pm",
+  },
+  {
+    img: TicketImg,
+    title: "System Issue",
+    id: "Ticket id : #ASDFGHJLB",
+    date: "02 Apr 2024, 5:60 pm",
+  },
+  {
+    img: TicketImg,
+    title: "System Issue",
+    id: "Ticket id : #ASDFGHJLB",
+    date: "02 Apr 2024, 5:60 pm",
+  },
+  {
+    img: TicketImg,
+    title: "System Issue",
+    id: "Ticket id : #ASDFGHJLB",
+    date: "02 Apr 2024, 5:60 pm",
+  },
+];
+export const SupportIssue=[
+  {
+    img: TicketImg,
+    title: "System Issue",
+    para:"Select system issue to find what problem system is facing"
+  },
+  {
+    img: TicketImg,
+    title: "System Issue",
+    para:"Select system issue to find what problem system is facing"
+  },
+  {
+    img: TicketImg,
+    title: "System Issue",
+    para:"Select system issue to find what problem system is facing"
+  },
+  {
+    img: TicketImg,
+    title: "System Issue",
+    para:"Select system issue to find what problem system is facing"
+  },
+]

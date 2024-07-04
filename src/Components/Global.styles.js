@@ -190,9 +190,12 @@ export const GlobalStyles = createGlobalStyle`
   } 
   h4,
   .h4 {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
     font-weight: 500;
+    @media (min-width: 992px){
+      font-size: 20px;
+    }
   }
   h5,
   .h5 {
@@ -200,8 +203,8 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 22px;
     font-weight: 600;
   }
-  h5,
-  .h5 {
+  h6,
+  .h6 {
     font-size: 16px;
     line-height: 20px;
     font-weight: 500;
@@ -252,7 +255,7 @@ export const GlobalStyles = createGlobalStyle`
       height: 8.16667%;
     }}
     
-    .wrapper{
+  .wrapper{
   background-color: var(--white);
   border-radius: 25px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);

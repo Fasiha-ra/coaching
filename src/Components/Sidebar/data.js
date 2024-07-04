@@ -6,6 +6,7 @@ import skill from "../../assets/profile/skill.png";
 import certified from "../../assets/profile/certified.png";
 import setting from "../../assets/profile/setting.png";
 import education from "../../assets/profile/educations.png";
+
 export const data = [
     {
         img: edit,

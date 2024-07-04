@@ -1,11 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import { GroupSessionWrap } from "./GroupSession.styles";
 import { IoIosArrowForward } from "react-icons/io";
 import { RequestMeetingData } from "../../../Constant/Data";
 import clock from "../../../assets/profile/time.png";
 import calendar from "../../../assets/profile/calendar.png";
 import Button from "../../Button";
+import Modal from "../../Modal";
+import EmployeePopup from "../../RequestEmployeePopup";
 const RequestMeeting = () => {
+  const [view, setView]=useState(false);
+    const clickView = () => {
+        setView(true);
+    }
   return (
     <GroupSessionWrap>
       <div className="wrapper">
@@ -32,12 +38,17 @@ const RequestMeeting = () => {
               </div>
             </div>
             <div className="btn">
-                <Button>Accept</Button>
+                <Button onClick={clickView}>View</Button>
             </div>
             </div>
           </div>
         ))}
       </div>
+      {view&& (
+        <Modal open={view} setOpen={setView} width="585px">
+            <EmployeePopup func={setView}/>
+        </Modal>
+      )}
     </GroupSessionWrap>
   );
 };

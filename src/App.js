@@ -18,6 +18,8 @@ import Education from "./Components/EditProfile/Education";
 import Certificate from "./Components/EditProfile/Certificate";
 import ChangePassword from "./Components/EditProfile/ChangePassword";
 import ForgotPassword from "./Components/EditProfile/ChangePassword/ForgotPassword";
+import SupportSec from "./Components/Support";
+import Notification from "./Components/Notification";
 const App = () => {
   return (
     <>
@@ -32,6 +34,8 @@ const App = () => {
             <Route path="/UpdatedProfile" element={<UpdatedProfile />} />
             <Route path="/" element={<AdminLayout />}>
               <Route path="/Profile" element={<MyProfile />} />
+              <Route path="/Support" element={<SupportSec />} />
+              <Route path="/Notification" element={<Notification />} />
             </Route>
             <Route path="/" element={<ProfileLayout />}>
               <Route path="/editprofile" element={<EditProfile />} />
