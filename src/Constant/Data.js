@@ -1,7 +1,11 @@
 import ratingIcon from "../../src/assets/profile/blogLogo.png";
 import certificate from "../../src/assets/profile/certificate.png";
 import img1 from "../../src/assets/profile/trending.png";
-import TicketImg from "../assets/support/support.png"
+import TicketImg from "../assets/support/support.png";
+import card from "../assets/home/card.png";
+import seesionimg from "../assets/home/session.png";
+import icon from "../assets/home/icon.png";
+import price from "../assets/home/money.png";
 export const RatingData = [
   {
     img: ratingIcon,
@@ -156,25 +160,124 @@ export const TicketData = [
     date: "02 Apr 2024, 5:60 pm",
   },
 ];
-export const SupportIssue=[
+export const SupportIssue = [
   {
     img: TicketImg,
     title: "System Issue",
-    para:"Select system issue to find what problem system is facing"
+    para: "Select system issue to find what problem system is facing",
   },
   {
     img: TicketImg,
     title: "System Issue",
-    para:"Select system issue to find what problem system is facing"
+    para: "Select system issue to find what problem system is facing",
   },
   {
     img: TicketImg,
     title: "System Issue",
-    para:"Select system issue to find what problem system is facing"
+    para: "Select system issue to find what problem system is facing",
   },
   {
     img: TicketImg,
     title: "System Issue",
-    para:"Select system issue to find what problem system is facing"
+    para: "Select system issue to find what problem system is facing",
   },
-]
+];
+export const financialData = [
+  { title: "Change Management : Leading Agile Systems Change" },
+  { title: "Change Management : Leading Agile Systems Change" },
+  { title: "Change Management : Leading Agile Systems Change" },
+  { title: "Change Management : Leading Agile Systems Change" },
+  { title: "Change Management : Leading Agile Systems Change" },
+  { title: "Change Management : Leading Agile Systems Change" },
+  { title: "Change Management : Leading Agile Systems Change" },
+  { title: "Change Management : Leading Agile Systems Change" },
+  { title: "Change Management : Leading Agile Systems Change" },
+  { title: "Change Management : Leading Agile Systems Change" },
+];
+export const employeeSession = [
+  {
+    img: card,
+    title: "Change Management : LeadingAgile Systems Change.....",
+    time: "09:00 pm  -  11:00 pm",
+    date: "April 30, 2024  -  May 07, 2024",
+  },
+  {
+    img: card,
+    title: "Change Management : LeadingAgile Systems Change.....",
+    time: "09:00 pm  -  11:00 pm",
+    date: "April 30, 2024  -  May 07, 2024",
+  },
+  {
+    img: card,
+    title: "Change Management : LeadingAgile Systems Change.....",
+    time: "09:00 pm  -  11:00 pm",
+    date: "April 30, 2024  -  May 07, 2024",
+  },
+];
+export const Sessions = [
+  {
+    imag: seesionimg,
+    title: "Tech Stack Specialization & Work-like Projects",
+    name: "Anish Mehra, Junior Engineer",
+    icon: icon,
+  },
+  {
+    imag: seesionimg,
+    title: "Tech Stack Specialization & Work-like Projects",
+    name: "Anish Mehra, Junior Engineer",
+    icon: icon,
+  },
+];
+export const earingData = [
+  {
+    text: "Total Revenue",
+    price: "$333",
+    img: price,
+  },
+  {
+    text: "Withdraws History",
+    price: "$333",
+    img: price,
+  },
+  {
+    text: "Request in Progress",
+    price: "$333",
+    img: price,
+  },
+  {
+    text: "Request Completed",
+    price: "$333",
+    img: price,
+  },
+  {
+    text: "Request on Hold",
+    price: "$333",
+    img: price,
+  },
+];
+export const AddedData = [
+  {
+    title: "Talent Management",
+    detail: [
+      { subTitle: "Courses Added", count: "00" },
+      { subTitle: "Sessions Attended", count: "00" },
+      { subTitle: "Employee Enrolled", count: "00" },
+    ],
+  },
+  {
+    title: "Talent Management",
+    detail: [
+      { subTitle: "Courses Added", count: "00" },
+      { subTitle: "Sessions Attended", count: "00" },
+      { subTitle: "Employee Enrolled", count: "00" },
+    ],
+  },
+  {
+    title: "Talent Management",
+    detail: [
+      { subTitle: "Courses Added", count: "00" },
+      { subTitle: "Sessions Attended", count: "00" },
+      { subTitle: "Employee Enrolled", count: "00" },
+    ],
+  },
+];

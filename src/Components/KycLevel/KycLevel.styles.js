@@ -1,14 +1,22 @@
 import styled from "styled-components";
-const getBackgroundColor = (level) => {
-  return level >= 50 ? "#CCEAFF" : "var(--gray-50)";
-};
+// const getBackgroundColor = (level) => {
+//   return level >= 50 ? "#CCEAFF" : "var(--gray-50)";
+// };
 export const StyledKycLevel = styled.div`
   width: 100%;
-  max-width: 500px;
+  max-width: 250px;
   position: relative;
-  height: 30px;
+  height: 10px;
   background: #EAEAEA;
   overflow: hidden;
+  @media  (min-width: 768pxpx){
+    max-width: 300;
+    height: 20px;
+  }
+  @media  (min-width: 992px){
+    max-width: 370;
+    height: 30px;
+  }
   
   &::before {
     content: "";
@@ -17,7 +25,6 @@ export const StyledKycLevel = styled.div`
     top: 0;
     bottom: 0;
     width: ${({ $level }) => $level + "%"};
-    background: ${({ $level }) => getBackgroundColor($level)};
-    border-radius: 8px;
+    background: ${({ $bg }) =>$bg };
   }
 `;

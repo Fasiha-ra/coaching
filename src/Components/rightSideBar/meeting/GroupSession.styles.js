@@ -9,6 +9,8 @@ export const GroupSessionWrap = styled.div`
     border-left: 4px solid var(--primary-blue);
 
     h5 {
+      font-size: 15px;
+      font-weight: 600;
       span {
         color: var(--primary-blue);
         text-decoration: underline;

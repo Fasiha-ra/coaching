@@ -40,7 +40,7 @@ const UpdatedProfile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/profile')
+    navigate('/dashboard')
     console.log("Form Data:", formData);
   };
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const RightBarWrapper = styled.div`
   padding: 0 10px;
-  .rightsidebarContent{
+  .rightsidebarContent {
     padding-bottom: 20px;
   }
 `;

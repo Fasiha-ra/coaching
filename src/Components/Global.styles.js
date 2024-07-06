@@ -190,7 +190,7 @@ export const GlobalStyles = createGlobalStyle`
   } 
   h4,
   .h4 {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 24px;
     font-weight: 500;
     @media (min-width: 992px){

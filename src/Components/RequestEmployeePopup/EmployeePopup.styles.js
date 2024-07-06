@@ -57,6 +57,9 @@ export const EmployeeWrap = styled.div`
       color: red;
       padding-bottom: 30px;
     }
+    h4{
+      margin-bottom: 20px;
+    }
     .text{
       width: 100%;
       max-width: 510px;
