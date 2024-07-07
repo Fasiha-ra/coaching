@@ -6,7 +6,7 @@ width: 100%;
     display: flex;
     gap: 10px;
   }
-  .sessions{
+  .sessions, .CreateSession{
     width:100%;
   }
 `;

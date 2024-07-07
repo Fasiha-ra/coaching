@@ -281,3 +281,55 @@ export const AddedData = [
     ],
   },
 ];
+export const SessionCardData = [
+  {
+    img: card,
+    title: "Change Management : LeadingAgile Systems Change.....",
+    time: "09:00 pm  -  11:00 pm",
+    date: "April 30, 2024  -  May 07, 2024",
+  },
+  {
+    img: card,
+    title: "Change Management : LeadingAgile Systems Change.....",
+    time: "09:00 pm  -  11:00 pm",
+    date: "April 30, 2024  -  May 07, 2024",
+  },
+  {
+    img: card,
+    title: "Change Management : LeadingAgile Systems Change.....",
+    time: "09:00 pm  -  11:00 pm",
+    date: "April 30, 2024  -  May 07, 2024",
+  },
+  {
+    img: card,
+    title: "Change Management : LeadingAgile Systems Change.....",
+    time: "09:00 pm  -  11:00 pm",
+    date: "April 30, 2024  -  May 07, 2024",
+  },
+  {
+    img: card,
+    title: "Change Management : LeadingAgile Systems Change.....",
+    time: "09:00 pm  -  11:00 pm",
+    date: "April 30, 2024  -  May 07, 2024",
+  },
+  {
+    img: card,
+    title: "Change Management : LeadingAgile Systems Change.....",
+    time: "09:00 pm  -  11:00 pm",
+    date: "April 30, 2024  -  May 07, 2024",
+  },
+];
+export const items = [
+  {
+    title: 'Introduction to talent management',
+    content: 'Change is now and forever. It is not optional any more than breathing and sleeping and doing it well is a requirement of organization health. Learning to capture the competitive advantage of a changing landscape is an essential skill for leaders.'
+  },
+  {
+    title: 'Introduction to talent management',
+    content: 'Change is now and forever. It is not optional any more than breathing and sleeping and doing it well is a requirement of organization health. Learning to capture the competitive advantage of a changing landscape is an essential skill for leaders.'
+  },
+  {
+    title: 'Introduction to talent management',
+    content: 'Change is now and forever. It is not optional any more than breathing and sleeping and doing it well is a requirement of organization health. Learning to capture the competitive advantage of a changing landscape is an essential skill for leaders.'
+  }
+];

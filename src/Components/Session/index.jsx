@@ -1,25 +1,52 @@
-import React from 'react'
-import { SessionWrapper } from './Session.styles'
-import RightSideBar from '../rightSideBar'
-import SessionSearchbar from './SessionSearchbar'
-import SessionCard from './SessionCard'
+import React, { useState } from "react";
+import { SessionWrapper } from "./Session.styles";
+import RightSideBar from "../rightSideBar";
+import SessionSearchbar from "./SessionSearchbar";
+import SessionCard from "./SessionCard";
+import ViewSession from "./VewSession";
+import CreateSession from "./CreateSession";
 
 const Session = () => {
+  const [view, setView] = useState(false);
+  const [create, setCreate] = useState(false);
+  const viewHandler = () => {
+    setView(true);
+    setCreate(false);
+  };
+  const createHandler = () =>{
+    setCreate(true);
+    setView(false);
+  } ;
+   const backToSessionsHandler = () => {
+    setCreate(false);
+    setView(false);
+  };
+  
   return (
     <SessionWrapper>
-        <div className="sessions">
-            <div className="searchbar">
-                <SessionSearchbar/>
-            </div>
-            <div className="card">
-                <SessionCard/>
-            </div>
+     
+      {view ? (
+        <div className="viewSession">
+          <ViewSession />
         </div>
-        <div className="rightSideBar">
-            <RightSideBar/>
+      ):create ? (
+        <div className="CreateSession">
+          <CreateSession click={backToSessionsHandler} />
         </div>
+      ):( <div className="sessions">
+        <div className="searchbar">
+          <SessionSearchbar  createHandle={createHandler} />
+        </div>
+        <div className="card">
+          <SessionCard clickHandle={viewHandler} />
+        </div>
+      </div>)}
+        
+      <div className="rightSideBar">
+        <RightSideBar />
+      </div>
     </SessionWrapper>
-  )
-}
+  );
+};
 
-export default Session
+export default Session;

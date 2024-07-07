@@ -3,7 +3,7 @@ import { SearchbarHolder } from "./SessionSearchbar.styles";
 import Button from "../../Button";
 import { FaAngleRight } from "react-icons/fa6";
 import SearchBar from "../../TextField/SearchBar";
-const SessionSearchbar = () => {
+const SessionSearchbar = ({createHandle}) => {
   return (
     <SearchbarHolder>
       <div className="search">
@@ -16,7 +16,7 @@ const SessionSearchbar = () => {
           <SearchBar />
         </div>
       </div>
-      <Button width="207px">Create Session</Button>
+      <Button width="207px" onClick={createHandle}>Create Session</Button>
     </SearchbarHolder>
   );
 };

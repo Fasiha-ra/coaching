@@ -11,7 +11,7 @@ const UpcomingSession = () => {
     <SessionWrap>
           <div className="flex">
           <h4>Upcoming 1:1  Sessions</h4>
-          <Link href="/">
+          <Link to="/session">
             <span className="h4">
               View All
               <IoIosArrowForward />

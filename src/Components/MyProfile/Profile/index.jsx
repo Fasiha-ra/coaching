@@ -11,6 +11,9 @@ const Profile = () => {
   const editProfile = () =>{
     navigate("/EditProfile")
   }
+  const openCreateSession = () =>{
+    navigate("/createSession")
+  }
   return (
     <ProfileHold>
       <div className="bgImg">
@@ -30,7 +33,7 @@ const Profile = () => {
       </div>
      <div className="btn">
      <Button width = "208px" onClick={editProfile}>Edit Profile </Button>
-     <Button width = "208px" type="outline">Create Sessions </Button>
+     <Button width = "208px" type="outline" onClick={openCreateSession}>Create Sessions </Button>
      <Button width = "208px" type="outline">Manage Calendar </Button>
      </div>
     </ProfileHold>

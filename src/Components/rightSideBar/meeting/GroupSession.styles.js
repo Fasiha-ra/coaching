@@ -6,7 +6,7 @@ export const GroupSessionWrap = styled.div`
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
     padding: 20px 10px;
     border-radius: 13px;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 4px solid #EEAB28;
 
     h5 {
       font-size: 15px;

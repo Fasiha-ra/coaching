@@ -277,4 +277,11 @@ export const GlobalStyles = createGlobalStyle`
     margin: 20px 0;
   }
 }
+.rbc-toolbar {
+    display: none
+    }
+    .rbc-events-container{
+    .rbc-event{
+      height: 8.16667%;
+    }}
 `;

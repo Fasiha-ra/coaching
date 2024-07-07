@@ -53,4 +53,27 @@ export const SidebarWrap = styled.div`
       }
     }
   }
+  .customwrapper{
+    width: 300px;
+  }
+  .btn, .calendar{
+    margin-bottom: 20px;
+}
+.dropdown{
+  strong{
+    display: block;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  span{
+    display: block;
+    margin-bottom: 10px;
+  }
+}
 `;

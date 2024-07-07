@@ -72,7 +72,7 @@ export const StyledTextareaWrap = styled.div`
 export const IconWrapper = styled.span`
   position: absolute;
   top: 8px;
-  right: 20px;
+  right: 10px;
   width: 25px;
   height: 25px;
   display: flex;

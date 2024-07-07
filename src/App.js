@@ -23,6 +23,10 @@ import Notification from "./Components/Notification";
 import Financial from "./Components/Financial";
 import Home from "./Components/Home";
 import Session from "./Components/Session";
+import ViewSession from "./Components/Session/VewSession";
+import EditSession from "./Components/Session/CreateSession/EditSession";
+import CreateSession from "./Components/Session/CreateSession";
+import Calendar from "./Components/Calendar";
 const App = () => {
   return (
     <>
@@ -36,16 +40,19 @@ const App = () => {
             <Route path="/signupform" element={<SignUpForm />} />
             <Route path="/UpdatedProfile" element={<UpdatedProfile />} />
             <Route path="/" element={<AdminLayout />}>
-            
-             
-            <Route path="/dashboard" element={<Home />} />
-            <Route path="/session" element={<Session />} />
+              <Route path="/dashboard" element={<Home />} />
+              <Route path="/session" element={<Session />} />
+              <Route path="/viewsession" element={<ViewSession />} />
+              <Route path="/editSession" element={<EditSession />} />
+              <Route path="/createSession" element={<CreateSession />} />
+              
               <Route path="/financialOverview" element={<Financial />} />
               <Route path="/Support" element={<SupportSec />} />
               <Route path="/Notification" element={<Notification />} />
               <Route path="/Profile" element={<MyProfile />} />
             </Route>
             <Route path="/" element={<ProfileLayout />}>
+            <Route path="/calendar" element={<Calendar />} />
               <Route path="/editprofile" element={<EditProfile />} />
               <Route path="/About" element={<About />} />
               <Route path="/ProfileSkills" element={<ProfileSkills />} />

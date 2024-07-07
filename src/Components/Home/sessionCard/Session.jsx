@@ -14,7 +14,7 @@ const Session = ({title}) => {
       <div className="wrapper">
         <div className="flex">
           <h4>{title}</h4>
-          <Link href="/">
+          <Link to="/session">
             <span className="h4">
               View All
               <IoIosArrowForward />
