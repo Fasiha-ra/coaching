@@ -155,13 +155,6 @@ export const SearchbarWrap = styled.div`
     width: 100%;
     max-width: 600px;
     height: 40px;
-    /* @media (min-width: 576px) {
-      max-width: 350px;
-    }
-    @media (min-width: 1440px) {
-      max-width: 526px;
-    } */
-
     input {
       color: black !important;
       &::placeholder {

@@ -5,9 +5,6 @@ import SearchBar from "../TextField/SearchBar";
 import DatePicker from "react-datepicker";
 import { FaAngleDown } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
-{
-  /* <FaAngleDown /> : <FaAngleRight /> */
-}
 const CustomSideBar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const handleDateChange = (date) => {

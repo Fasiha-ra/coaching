@@ -3,17 +3,9 @@ import { CalendarWrap } from "./Calendar.styles";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import CalendarHeader from "./CalendarHeader";
 import TimeSlots from "./TimeSlots";
-import CustomSideBar from "../Sidebar/CustomeSideBar";
-import Button from "../Button";
-import SearchBar from "../TextField/SearchBar";
-import DatePicker from "react-datepicker";
 import LectureSchedule from "../LectureSchedule";
 
 const Calendar = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
   const [lecture, setLecture] = useState(false);
   const BackToPage = () => {
     setLecture(false);

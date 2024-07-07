@@ -75,7 +75,6 @@ export const NavigationWrap = styled.ul`
       .icons {
         font-size: 26px;
         text-align: center;
-        /* margin-bottom: 10px; */
         img{
           margin: 0 auto;
         }
@@ -91,19 +90,9 @@ export const NavigationWrap = styled.ul`
         color: var(--primary-text-color);
       }
       .icons {
-        /* padding: 5px; */
         width: 30px;
         height: 30px;
         margin: 0 auto;
-        /* background-color: var(--black);
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
-        font-size: 18px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        margin: 0 auto 10px; */
       }
     }
   }

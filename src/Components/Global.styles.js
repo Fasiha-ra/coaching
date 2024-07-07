@@ -240,11 +240,7 @@ export const GlobalStyles = createGlobalStyle`
     margin-bottom: 20px;
     h5{
         margin: 0;
-        /* color: var(--primary-text-color); */
     }
-    /* .arrowIcon{
-        color: var(--primary-text-color);
-    } */
   }
   }
   .rbc-toolbar {

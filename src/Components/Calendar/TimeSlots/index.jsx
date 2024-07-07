@@ -35,12 +35,9 @@ const TimeSlots = ({click}) => (
     <Calendar
       localizer={localizer}
       events={events}
-      views={['day']} 
-      // step={60} 
+      views={['day']}  
       defaultView='day' 
       onSelectEvent={click}
-      // selectable
-      // onSelectSlot={(slotInfo) => console.log(slotInfo)} 
     />
   </div>
 );

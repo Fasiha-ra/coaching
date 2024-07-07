@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { LectureWrap } from "./Lecture.styles";
 import img1 from "../..//assets/profile/bg.png";
 import author from "../..//assets/profile/author.png";
@@ -6,14 +6,12 @@ import stars from "../../assets/profile/stars.png";
 import date from "../../assets/profile/calendar.png";
 import time from "../../assets/profile/time.png";
 import sessionicon from "../../assets/session/employes.png";
-import Button from "../Button";
+
 import Accordions from "../Accordions";
 import { items } from "../../Constant/Data";
 import backicon from "../../assets/session/back.png"
 const LectureSchedule = ({BackToPage }) => {
-  const backtopage = () =>{
-    alert("fasiha")
-  }
+
   return (
     <LectureWrap>
       <div className="backimg" onClick={BackToPage}>

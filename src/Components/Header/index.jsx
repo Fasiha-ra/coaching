@@ -36,7 +36,6 @@ const Header = ({ toggleSidebar }) => {
               >
                 <div className="item">
                   <div className="icons">
-                    {" "}
                     <img src={value.icon} alt="header icons" />
                   </div>
                   {value.title}

@@ -2,7 +2,6 @@ import React from "react";
 import { ProfileHold } from "./Profile.styles";
 import BG from "../../../assets/profile/bgimg.png";
 import Logo from "../../../assets/profile/profileimg.png";
-import stars from "../../../assets/profile/stars.png";
 import Button from '../../Button'
 import { useNavigate } from "react-router-dom";
 

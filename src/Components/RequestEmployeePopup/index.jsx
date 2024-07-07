@@ -8,7 +8,7 @@ import Modal from "../Modal";
 import AcceptPopup from "./Accept"; 
 import Rejected from "./Rejected";
 
-const EmployeePopup = ({func}) => {
+const EmployeePopup = () => {
   const [accept, setAccept] = useState(false);
   const [rejected, setRejected] = useState(false);
   const RejectPopup = () => {
@@ -17,7 +17,6 @@ const EmployeePopup = ({func}) => {
   const AcceptHandler = (e) => {
     e.preventDefault();
     setAccept(true);
-    // func(false);
     
   };
   return (

@@ -1,7 +1,5 @@
 import styled from "styled-components";
-// const getBackgroundColor = (level) => {
-//   return level >= 50 ? "#CCEAFF" : "var(--gray-50)";
-// };
+
 export const StyledKycLevel = styled.div`
   width: 100%;
   max-width: 250px;

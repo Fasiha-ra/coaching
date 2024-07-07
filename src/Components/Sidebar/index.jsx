@@ -1,7 +1,7 @@
 import React from "react";
 import { SidebarWrap } from "./Sidebar.styles";
 import { data } from "./data";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   return (
     <SidebarWrap>

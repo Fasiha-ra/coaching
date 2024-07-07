@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CreateWrapper } from "./createSession.styles";
 import backarrow from "../../../assets/profile/backarrow.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import TextField from "../../TextField/TextField";
 import time from "../../../assets/profile/time.png";
 import date from "../../../assets/profile/calendar.png";

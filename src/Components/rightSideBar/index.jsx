@@ -7,7 +7,7 @@ import TrendingSession from "./TrendingSession";
 import Meeting from "./meeting";
 import { TrendingSessionData } from "../../Constant/Data";
 
-const RightSideBar = ({ children }) => {
+const RightSideBar = () => {
   return <RightBarWrapper>
     <div className="rightsidebarContent">
             <TrendingSession data={TrendingSessionData} title="Upcoming Sessions"/>

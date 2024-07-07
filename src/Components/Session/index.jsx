@@ -13,35 +13,36 @@ const Session = () => {
     setView(true);
     setCreate(false);
   };
-  const createHandler = () =>{
+  const createHandler = () => {
     setCreate(true);
     setView(false);
-  } ;
-   const backToSessionsHandler = () => {
+  };
+  const backToSessionsHandler = () => {
     setCreate(false);
     setView(false);
   };
-  
+
   return (
     <SessionWrapper>
-     
       {view ? (
         <div className="viewSession">
           <ViewSession />
         </div>
-      ):create ? (
+      ) : create ? (
         <div className="CreateSession">
           <CreateSession click={backToSessionsHandler} />
         </div>
-      ):( <div className="sessions">
-        <div className="searchbar">
-          <SessionSearchbar  createHandle={createHandler} />
+      ) : (
+        <div className="sessions">
+          <div className="searchbar">
+            <SessionSearchbar createHandle={createHandler} />
+          </div>
+          <div className="card">
+            <SessionCard clickHandle={viewHandler} />
+          </div>
         </div>
-        <div className="card">
-          <SessionCard clickHandle={viewHandler} />
-        </div>
-      </div>)}
-        
+      )}
+
       <div className="rightSideBar">
         <RightSideBar />
       </div>

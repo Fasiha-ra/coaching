@@ -39,11 +39,6 @@ export const MainLayoutSection = styled.div`
       @media (min-width: 992px) {
         padding: 30px 10px 0 10px;
       }
-      /* flex-grow: 0;
-     
-      @media (min-width: 1440px) {
-        flex-grow: 1;
-      } */
     }
   }
 
