@@ -10,8 +10,12 @@ export const SessionCardWrap = styled.div`
       flex-wrap: nowrap;
     }
     figure {
-      margin: 0 auto;
+      /* margin: 0 auto; */
       position: relative;
+      img{
+        max-width: 392px;
+        height: 240px;
+      }
     }
     blockquote {
       margin: 10px;

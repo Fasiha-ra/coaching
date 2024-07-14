@@ -1,26 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import { ProfileHold } from "./Profile.styles";
-import BG from "../../../assets/profile/bgimg.png";
-import Logo from "../../../assets/profile/profileimg.png";
-import Button from '../../Button'
+import BG from "../../../assets/profile/editBG.png";
+import Logo from "../../../assets/profile/editLOGO.png";
+import Button from "../../Button";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const navigate= useNavigate();
-  const editProfile = () =>{
-    navigate("/EditProfile")
-  }
-  const openCreateSession = () =>{
-    navigate("/createSession")
-  }
+  const navigate = useNavigate();
+  const [backgroundImage, setBackgroundImage] = useState(BG);
+  const [logoImage, setLogoImage] = useState(Logo);
+
+  const editProfile = () => {
+    navigate("/EditProfile");
+  };
+
+  const openCreateSession = () => {
+    navigate("/createSession");
+  };
+
+  const handleImageChange = (e, setImage) => {
+    const file = e.target.files[0];
+    if (file && (file.type === "image/jpeg" || file.type === "image/png" || file.type === "image/jpg")) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      alert("Please select a valid image file (jpg, jpeg, png)");
+    }
+  };
+
   return (
     <ProfileHold>
-      <div className="bgImg">
-        <img src={BG} alt="background" />
+      <div className="bgImg" onClick={() => document.getElementById('bgInput').click()}>
+        <img src={backgroundImage} alt="background" />
+        <input
+          type="file"
+          id="bgInput"
+          style={{ display: 'none' }}
+          accept="image/jpeg, image/png, image/jpg"
+          onChange={(e) => handleImageChange(e, setBackgroundImage)}
+        />
       </div>
-      <div className="logo">
+      <div className="logo" onClick={() => document.getElementById('logoInput').click()}>
         <figure>
-          <img src={Logo} alt="logo" />
+          <img src={logoImage} alt="logo" />
+          <input
+            type="file"
+            id="logoInput"
+            style={{ display: 'none' }}
+            accept="image/jpeg, image/png, image/jpg"
+            onChange={(e) => handleImageChange(e, setLogoImage)}
+          />
         </figure>
       </div>
       <div className="textxWrap">
@@ -30,11 +62,11 @@ const Profile = () => {
           <strong>Human Rights | Women Empowerment</strong>
         </div>
       </div>
-     <div className="btn">
-     <Button width = "208px" onClick={editProfile}>Edit Profile </Button>
-     <Button width = "208px" type="outline" onClick={openCreateSession}>Create Sessions </Button>
-     <Button width = "208px" type="outline">Manage Calendar </Button>
-     </div>
+      <div className="btn">
+        <Button width="208px" onClick={editProfile}>Edit Profile</Button>
+        <Button width="208px" type="outline" onClick={openCreateSession}>Create Sessions</Button>
+        <Button width="208px" type="outline">Manage Calendar</Button>
+      </div>
     </ProfileHold>
   );
 };

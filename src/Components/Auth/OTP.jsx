@@ -12,7 +12,7 @@ const OTP = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    navigate('/signupform');
+    navigate('/editprofile');
   };
 
   return (

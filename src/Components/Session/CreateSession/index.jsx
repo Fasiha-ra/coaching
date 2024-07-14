@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { CreateWrapper } from "./createSession.styles";
 import backarrow from "../../../assets/profile/backarrow.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import TextField from "../../TextField/TextField";
 import time from "../../../assets/profile/time.png";
 import date from "../../../assets/profile/calendar.png";
 import Button from "../../Button/index";
-import upload from "../../../assets/session/upload.png";
+import upload from "../../../assets/session/uploadimg.png";
 import Dropdown from "../../Dropdown";
-import { FaPlus } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa";
+import DatePicker from "react-datepicker";
+import TimePicker from "react-time-picker";
+import "react-datepicker/dist/react-datepicker.css";
+import "react-time-picker/dist/TimePicker.css";
 
-const CreateSession = ({click}) => {
-    const navigate = useNavigate();
-    const clickSession = () =>{
-        navigate("/session")
-    }
+const CreateSession = ({ click, onSave }) => {
+  const navigate = useNavigate();
+
   const [sessionOptions, setSessionOptions] = useState([
     {
       label: "Individual Session",
@@ -23,6 +25,7 @@ const CreateSession = ({click}) => {
     },
     { label: "Group Session", value: "Group Session", checked: false },
   ]);
+
   const [sessionTypeOptions, setSessionTypeOptions] = useState([
     { label: "Talent Management", value: "Talent Management", checked: false },
     { label: "Human Resource", value: "Human Resource", checked: false },
@@ -30,6 +33,7 @@ const CreateSession = ({click}) => {
     { label: "Employee Growth", value: "Employee Growth", checked: false },
     { label: "Other", value: "Other", checked: false },
   ]);
+
   const [sessionRoleOptions, setSessionRoleOptions] = useState([
     { label: "HR", value: "HR", checked: false },
     { label: "Employees", value: "Employees", checked: false },
@@ -39,12 +43,59 @@ const CreateSession = ({click}) => {
     { label: "All", value: "All", checked: false },
   ]);
 
+  const [startDate, setStartDate] = useState(null);
+  const [startTime, setStartTime] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+  const [topics, setTopics] = useState([{ title: "", description: "" }]);
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const [sessionTitle, setSessionTitle] = useState(""); 
+
+  const handleAddTopic = () => {
+    setTopics([...topics, { title: "", description: "" }]);
+  };
+
+  const handleTopicChange = (index, field, value) => {
+    const newTopics = [...topics];
+    newTopics[index][field] = value;
+    setTopics(newTopics);
+  };
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUploadedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleSave = () => {
+    const newSession = {
+      sessionType: sessionOptions.filter((option) => option.checked),
+      title: sessionTitle,
+      about: "",
+      startDate,
+      startTime,
+      endDate,
+      endTime,
+      uploadedImage,
+      sessionFor: sessionTypeOptions.filter((option) => option.checked),
+      sessionForRole: sessionRoleOptions.filter((option) => option.checked),
+      topics,
+      sessionURL: "",
+    };
+    onSave(newSession);
+  };
+
   return (
     <CreateWrapper>
       <div className="createHolder">
         <div className="backimg">
           <button onClick={click}>
-            <img src={backarrow} alt="back" onClick={clickSession}/>
+            <img src={backarrow} alt="back" />
           </button>
         </div>
         <div className="createSession">
@@ -65,9 +116,9 @@ const CreateSession = ({click}) => {
             type="text"
             label="Title"
             name="title"
-            // value={formData.firstName}
-            // onChange={handleInputChange}
             bgClr="transparent"
+            value={sessionTitle}
+            onChange={(e) => setSessionTitle(e.target.value)}
           />
           <TextField
             variant="textarea"
@@ -82,11 +133,21 @@ const CreateSession = ({click}) => {
                 <div className="btnFlex">
                   <strong>
                     <img src={date} alt="date" />
-                    Select Date
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date) => setStartDate(date)}
+                      dateFormat="yyyy/MM/dd"
+                      placeholderText="Select Date"
+                    />
                   </strong>
                   <strong>
                     <img src={time} alt="time" />
-                    Select Time
+                    <TimePicker
+                      onChange={setStartTime}
+                      value={startTime}
+                      disableClock={true}
+                      format="hh:mm a"
+                    />
                   </strong>
                 </div>
               </div>
@@ -95,75 +156,116 @@ const CreateSession = ({click}) => {
                 <div className="btnFlex">
                   <strong>
                     <img src={date} alt="date" />
-                    Select Date
+                    <DatePicker
+                      selected={endDate}
+                      onChange={(date) => setEndDate(date)}
+                      dateFormat="yyyy/MM/dd"
+                      placeholderText="Select Date"
+                    />
                   </strong>
                   <strong>
                     <img src={time} alt="time" />
-                    Select Time
+                    <TimePicker
+                      onChange={setEndTime}
+                      value={endTime}
+                      disableClock={true}
+                      format="hh:mm a"
+                    />
                   </strong>
                 </div>
               </div>
             </div>
           </div>
-          <div className="uploadimg">
-            <span className="heading">Upload Image</span>
-            <div className="img">
-              <img src={upload} alt="upload" />
-            </div>
+          <div className="Upload">
+            <span className="heading">Upload</span>
+            <label htmlFor="uploadImage">
+              <div className="uploadImage">
+                <input
+                  type="file"
+                  id="uploadImage"
+                  onChange={handleImageUpload}
+                  accept="image/*"
+                  hidden
+                />
+                {uploadedImage ? (
+                  <div className="uploadPlaceholder">
+                    <img src={uploadedImage} alt="uploaded" />
+                  </div>
+                ) : (
+                  <div className="uploadPlaceholder">
+                    <img src={upload} alt="upload" />
+                  </div>
+                )}
+              </div>
+            </label>
           </div>
-          <div className="topics">
-            <span className="heading">Add Topics</span>
-            <div className="dropdownFlex">
-              <div className="drop">
-              <Dropdown
-                width="300px"
-                label="Session For"
-                options={sessionTypeOptions}
-                setOptions={setSessionTypeOptions}
-              />
+          <div className="addTopic">
+            <h4 className="title">Add Topics</h4>
+            {topics.map((topic, index) => (
+              <div key={index} className="topicInput">
+                <TextField
+                  parentClass="inputHolder"
+                  className="input-field"
+                  field_Name="title"
+                  type="text"
+                  label={`Title ${index + 1}`}
+                  name={`title-${index}`}
+                  bgClr="transparent"
+                  value={topic.title}
+                  onChange={(e) =>
+                    handleTopicChange(index, "title", e.target.value)
+                  }
+                />
+                <TextField
+                  variant="textarea"
+                  label="Description"
+                  parentClass="textareaHolder"
+                  value={topic.description}
+                  onChange={(e) =>
+                    handleTopicChange(index, "description", e.target.value)
+                  }
+                />
+              </div>
+            ))}
+            <Button
+              className="addButton"
+              width="180px"
+              onClick={handleAddTopic}
+            >
+              <FaPlus /> Add More
+            </Button>
+          </div>
+          <div className="sessionDropdown">
+            <h4 className="title">Session Info</h4>
+            <div className="flexWrap">
+              <div className="drop1">
+                <Dropdown
+                  width="300px"
+                  label="Session Type"
+                  options={sessionTypeOptions}
+                  setOptions={setSessionTypeOptions}
+                />
               </div>
               <div className="drop2">
-              <Dropdown
-                width="600px"
-                label="Session For Role"
-                options={sessionRoleOptions}
-                setOptions={setSessionRoleOptions}
-              />
+                <Dropdown
+                  width="300px"
+                  label="Session For"
+                  options={sessionRoleOptions}
+                  setOptions={setSessionRoleOptions}
+                />
               </div>
             </div>
-            <TextField
-              parentClass="inputHolder"
-              className="input-field"
-              field_Name="title"
-              type="text"
-              label="Title 1"
-              name="title"
-              // value={formData.firstName}
-              // onChange={handleInputChange}
-              bgClr="transparent"
-            />
-            <TextField
-              variant="textarea"
-              label="Description"
-              parentClass="textareaHolder"
-            />
-            <Button width="180px"><FaPlus /> Add More</Button>
           </div>
-          <div className="info">
-            <span className="heading">Session Info</span>
-            <TextField
-              parentClass="inputHolder"
-              className="input-field"
-              field_Name="title"
-              type="text"
-              label="Session URL"
-              name="title"
-              // value={formData.firstName}
-              // onChange={handleInputChange}
-              bgClr="transparent"
-            />
-          </div>
-          <Button width="240px">Save Session</Button>
+          <h4 className="title">Session URL</h4>
+          <TextField
+            parentClass="inputHolder"
+            className="input-field"
+            field_Name="title"
+            type="text"
+          />
+          <Button className="saveSession" width="230px" onClick={handleSave}>
+            Save
+          </Button>
         </div>
       </div>
     </CreateWrapper>

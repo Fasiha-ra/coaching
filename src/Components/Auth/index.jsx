@@ -15,7 +15,7 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setEmail(emailInput);
-    navigate("/password");
+    navigate("/otp");
     console.log("Email:", emailInput);
   };
 

@@ -8,19 +8,19 @@ const localizer = momentLocalizer(moment);
 const events = [
   {
     title: <Title />,
-    start: new Date(2024, 6, 7, 10, 0), 
-    end: new Date(2024, 6, 7, 11, 0),   
+    start: new Date(2024, 11, 7, 10, 0), 
+    end: new Date(2024, 11, 7, 11, 0),   
   },
  
   {
     title: <ManageTitle />,
-    start: new Date(2024, 6,  7, 5, 0),
-    end: new Date(2024, 6,  7, 6, 0),
+    start: new Date(2024, 13,  7, 5, 0),
+    end: new Date(2024, 13,  7, 6, 0),
   },
   {
     title: <ManageTitle />,
-    start: new Date(2024, 6,  7, 8, 0),
-    end: new Date(2024, 6,  7, 9, 0),
+    start: new Date(2024, 13,  7, 8, 0),
+    end: new Date(2024, 13,  7, 9, 0),
   },
   {
     title: <ManageTitle />,

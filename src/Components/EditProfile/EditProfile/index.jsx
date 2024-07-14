@@ -1,17 +1,58 @@
-import React from "react";
-import BG from "../../../assets/profile/bgimg.png";
-import Logo from "../../../assets/profile/profileimg.png";
+import React, { useState } from "react";
+import BG from "../../../assets/profile/editBG.png";
+import Logo from "../../../assets/profile/editLOGO.png";
 import { EditProfileWrap } from "./editProfile.styles";
 import back from "../../../assets/profile/backarrow.png";
 import { useNavigate } from "react-router-dom";
 import TextField from "../../TextField/TextField";
 import { FaGreaterThan } from "react-icons/fa6";
-import Button from '../../Button'
+
 const EditProfile = () => {
   const navigate = useNavigate();
+  const [backgroundImage, setBackgroundImage] = useState(BG);
+  const [logoImage, setLogoImage] = useState(Logo);
+  const [primaryTopics, setPrimaryTopics] = useState([]);
+  const [secondaryTopics, setSecondaryTopics] = useState([]);
+  const [primaryTopicInput, setPrimaryTopicInput] = useState("");
+  const [secondaryTopicInput, setSecondaryTopicInput] = useState("");
+
   const backToProfile = () => {
     navigate("/profile");
   };
+
+  const handleImageChange = (e, setImage) => {
+    const file = e.target.files[0];
+    if (file && (file.type === "image/jpeg" || file.type === "image/png" || file.type === "image/jpg")) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      alert("Please select a valid image file (jpg, jpeg, png)");
+    }
+  };
+
+  const handleAddPrimaryTopic = () => {
+    if (primaryTopicInput.trim() !== "") {
+      setPrimaryTopics([...primaryTopics, primaryTopicInput.trim()]);
+      setPrimaryTopicInput("");
+    }
+  };
+
+  const handleAddSecondaryTopic = () => {
+    if (secondaryTopicInput.trim() !== "") {
+      setSecondaryTopics([...secondaryTopics, secondaryTopicInput.trim()]);
+      setSecondaryTopicInput("");
+    }
+  };
+
+  const handleKeyPress = (e, addTopic) => {
+    if (e.key === "Enter") {
+      addTopic();
+    }
+  };
+
   return (
     <EditProfileWrap>
       <div className="flex">
@@ -19,12 +60,26 @@ const EditProfile = () => {
           <img src={back} alt="back" />
         </div>
         <div className="wrap">
-          <div className="bgImg">
-            <img src={BG} alt="background" />
+          <div className="bgImg" onClick={() => document.getElementById('bgInput').click()}>
+            <img src={backgroundImage} alt="background" />
+            <input
+              type="file"
+              id="bgInput"
+              style={{ display: 'none' }}
+              accept="image/jpeg, image/png, image/jpg"
+              onChange={(e) => handleImageChange(e, setBackgroundImage)}
+            />
           </div>
-          <div className="logo">
+          <div className="logo" onClick={() => document.getElementById('logoInput').click()}>
             <figure>
-              <img src={Logo} alt="logo" />
+              <img src={logoImage} alt="logo" />
+              <input
+                type="file"
+                id="logoInput"
+                style={{ display: 'none' }}
+                accept="image/jpeg, image/png, image/jpg"
+                onChange={(e) => handleImageChange(e, setLogoImage)}
+              />
             </figure>
           </div>
         </div>
@@ -39,8 +94,6 @@ const EditProfile = () => {
             type="text"
             label="First Name"
             name="firstName"
-            // value={formData.firstName}
-            // onChange={handleInputChange}
             bgClr="transparent"
           />
           <TextField
@@ -50,8 +103,6 @@ const EditProfile = () => {
             type="text"
             label="Last Name"
             name="lastName"
-            // value={formData.firstName}
-            // onChange={handleInputChange}
             bgClr="transparent"
           />
         </div>
@@ -63,8 +114,6 @@ const EditProfile = () => {
             type="email"
             label="Email id"
             name="email"
-            // value={formData.firstName}
-            // onChange={handleInputChange}
             bgClr="transparent"
           />
           <TextField
@@ -74,8 +123,6 @@ const EditProfile = () => {
             type="number"
             label="Contact Number"
             name="number"
-            // value={formData.firstName}
-            // onChange={handleInputChange}
             bgClr="transparent"
           />
         </div>
@@ -87,8 +134,6 @@ const EditProfile = () => {
             type="text"
             label="Country / Region"
             name="Country"
-            // value={formData.firstName}
-            // onChange={handleInputChange}
             bgClr="transparent"
           />
           <TextField
@@ -98,47 +143,53 @@ const EditProfile = () => {
             type="text"
             label="City"
             name="city"
-            // value={formData.firstName}
-            // onChange={handleInputChange}
             bgClr="transparent"
           />
         </div>
         <h4 className="heading">Add Primary Training Topic</h4>
-        <TextField
-          hasicon={<FaGreaterThan />}
-          parentClass="inputHolder"
-          className="input-field"
-          field_Name="training"
-          type="text"
-          placeholder="Training Topics : ( ex : Management ) "
-          name="training"
-          // value={formData.firstName}
-          // onChange={handleInputChange}
-          bgClr="transparent"
-        />
+        <div className="addTopic">
+          <TextField
+            hasicon={<FaGreaterThan />}
+            parentClass="inputHolder"
+            className="input-field"
+            field_Name="primaryTraining"
+            type="text"
+            placeholder="Training Topics : ( ex : Management ) "
+            name="primaryTraining"
+            bgClr="transparent"
+            value={primaryTopicInput}
+            onChange={(e) => setPrimaryTopicInput(e.target.value)}
+            onKeyPress={(e) => handleKeyPress(e, handleAddPrimaryTopic)}
+          />
+        </div>
         <div className="managementWrap">
           <div className="flex">
-          <span>Management</span>
+            {primaryTopics.map((topic, index) => (
+              <span key={index}>{topic}</span>
+            ))}
           </div>
         </div>
         <h4 className="heading">Add Secondary Training Topic</h4>
-        <TextField
-          hasicon={<FaGreaterThan />}
-          parentClass="inputHolder"
-          className="input-field"
-          field_Name="training"
-          type="text"
-          placeholder="Training Topics : ( ex : Management ) "
-          name="training"
-          // value={formData.firstName}
-          // onChange={handleInputChange}
-          bgClr="transparent"
-        />
+        <div className="addTopic">
+          <TextField
+            hasicon={<FaGreaterThan />}
+            parentClass="inputHolder"
+            className="input-field"
+            field_Name="secondaryTraining"
+            type="text"
+            placeholder="Training Topics : ( ex : Management ) "
+            name="secondaryTraining"
+            bgClr="transparent"
+            value={secondaryTopicInput}
+            onChange={(e) => setSecondaryTopicInput(e.target.value)}
+            onKeyPress={(e) => handleKeyPress(e, handleAddSecondaryTopic)}
+          />
+        </div>
         <div className="managementWrap">
           <div className="flex">
-          <span>Management</span>
-          <span>Management</span>
-          <span>Management</span>
+            {secondaryTopics.map((topic, index) => (
+              <span key={index}>{topic}</span>
+            ))}
           </div>
           <button>+</button>
         </div>

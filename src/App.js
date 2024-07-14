@@ -27,42 +27,45 @@ import ViewSession from "./Components/Session/VewSession";
 import EditSession from "./Components/Session/CreateSession/EditSession";
 import CreateSession from "./Components/Session/CreateSession";
 import Calendar from "./Components/Calendar";
+import { SessionProvider } from "./Components/Session/sessionContext";
 const App = () => {
   return (
     <>
       <AuthProvider>
         <BrowserRouter>
           <GlobalStyles />
-          <Routes>
-            <Route index element={<SignUp />} />
-            <Route path="/password" element={<Password />} />
-            <Route path="/otp" element={<OTP />} />
-            <Route path="/signupform" element={<SignUpForm />} />
-            <Route path="/UpdatedProfile" element={<UpdatedProfile />} />
-            <Route path="/" element={<AdminLayout />}>
-              <Route path="/dashboard" element={<Home />} />
-              <Route path="/session" element={<Session />} />
-              <Route path="/viewsession" element={<ViewSession />} />
-              <Route path="/editSession" element={<EditSession />} />
-              <Route path="/createSession" element={<CreateSession />} />
-              
-              <Route path="/financialOverview" element={<Financial />} />
-              <Route path="/Support" element={<SupportSec />} />
-              <Route path="/Notification" element={<Notification />} />
-              <Route path="/Profile" element={<MyProfile />} />
-            </Route>
-            <Route path="/" element={<ProfileLayout />}>
-            <Route path="/calendar" element={<Calendar />} />
-              <Route path="/editprofile" element={<EditProfile />} />
-              <Route path="/About" element={<About />} />
-              <Route path="/ProfileSkills" element={<ProfileSkills />} />
-              <Route path="/experience" element={<Experience />} />
-              <Route path="/education" element={<Education />} />
-              <Route path="/certificates" element={<Certificate />} />
-              <Route path="/setting" element={<ChangePassword />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} />
-            </Route>
-          </Routes>
+          <SessionProvider>
+            <Routes>
+              <Route index element={<SignUp />} />
+              {/* <Route path="/password" element={<Password />} /> */}
+              <Route path="/otp" element={<OTP />} />
+              {/* <Route path="/signupform" element={<SignUpForm />} /> */}
+              {/* <Route path="/UpdatedProfile" element={<UpdatedProfile />} /> */}
+              <Route path="/" element={<AdminLayout />}>
+                <Route path="/dashboard" element={<Home />} />
+                <Route path="/session" element={<Session />} />
+                <Route path="/viewsession" element={<ViewSession />} />
+                <Route path="/editSession" element={<EditSession />} />
+                <Route path="/createSession" element={<CreateSession />} />
+
+                <Route path="/financialOverview" element={<Financial />} />
+                <Route path="/Support" element={<SupportSec />} />
+                <Route path="/Notification" element={<Notification />} />
+                <Route path="/Profile" element={<MyProfile />} />
+              </Route>
+              <Route path="/" element={<ProfileLayout />}>
+                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/editprofile" element={<EditProfile />} />
+                <Route path="/About" element={<About />} />
+                <Route path="/ProfileSkills" element={<ProfileSkills />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/education" element={<Education />} />
+                <Route path="/certificates" element={<Certificate />} />
+                <Route path="/setting" element={<ChangePassword />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+              </Route>
+            </Routes>
+          </SessionProvider>
         </BrowserRouter>
       </AuthProvider>
     </>

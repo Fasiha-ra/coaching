@@ -2,11 +2,11 @@ import styled from "styled-components";
 export const CreateWrapper = styled.div`
   .createHolder {
     margin-bottom: 20px;
-   display: block;
-    @media (min-width: 1200px){
-        display: flex;
-    align-items: start;
-    gap: 20px;
+    display: block;
+    @media (min-width: 1200px) {
+      display: flex;
+      align-items: start;
+      gap: 20px;
     }
   }
   .createSession {
@@ -33,7 +33,7 @@ export const CreateWrapper = styled.div`
   .inputHolder {
     input {
       color: var(--black);
-      &::placeholder{
+      &::placeholder {
         color: var(--black);
       }
     }
@@ -53,8 +53,8 @@ export const CreateWrapper = styled.div`
     justify-content: space-between;
     flex-direction: column;
     gap: 10px;
-    @media (min-width: 992px){
-        flex-direction: row;
+    @media (min-width: 992px) {
+      flex-direction: row;
     }
     .btnFlex {
       display: flex;
@@ -78,36 +78,51 @@ export const CreateWrapper = styled.div`
           width: 16px;
           height: 16px;
         }
+        input {
+          width: 170px;
+          background: transparent;
+          border: none;
+        }
+        .react-time-picker__wrapper{
+          border: none;
+        }
+        .react-time-picker__clear-button{
+          display: none;
+        }
       }
     }
   }
-  .uploadimg {
+  .uploadPlaceholder {
     margin-bottom: 20px;
-    .img {
+    img {
       width: 100%;
       max-width: 448px;
       border: 1px solid var(--gray-30);
       height: 244px;
-      display: flex;
+      /* display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: center; */
     }
   }
-  .topics{
-    .dropdownFlex{
-        display: block;
-       
-        @media (min-width: 768px){
-            display: flex;
-            gap: 50px;
-        }
-        .drop1{
-            flex-shrink: 0;
-            width: 300px;
-        }
-        .drop2{
-            flex-grow: 1;
-        }
+  
+    .flexWrap {
+      display: block;
+
+      @media (min-width: 768px) {
+        display: flex;
+        gap: 50px;
+      }
+      .drop1 {
+        flex-shrink: 0;
+        width: 300px;
+      }
+      .drop2 {
+        flex-grow: 1;
+      }
     }
+  
+  .addTopic{
+    padding-bottom: 20px;
   }
+ 
 `;

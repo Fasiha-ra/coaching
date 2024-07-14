@@ -46,6 +46,6 @@ export const data = [
     {
         img: logout,
         title:"Logout",
-        link:"/logout"
+        link:"/"
     }
 ];

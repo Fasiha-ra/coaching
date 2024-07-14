@@ -53,6 +53,9 @@ export const ViewWrap = styled.div`
         .btns {
           display: flex;
           gap: 20px;
+          button{
+            width: 190px;
+          }
         }
       }
       .thumb {

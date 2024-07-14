@@ -7,19 +7,28 @@ import ViewSession from "./VewSession";
 import CreateSession from "./CreateSession";
 
 const Session = () => {
+  const [sessions, setSessions] = useState([]);
   const [view, setView] = useState(false);
   const [create, setCreate] = useState(false);
+
   const viewHandler = () => {
     setView(true);
     setCreate(false);
   };
+
   const createHandler = () => {
     setCreate(true);
     setView(false);
   };
+
   const backToSessionsHandler = () => {
     setCreate(false);
     setView(false);
+  };
+
+  const handleSaveSession = (newSession) => {
+    setSessions([...sessions, newSession]);
+    backToSessionsHandler();
   };
 
   return (
@@ -30,7 +39,7 @@ const Session = () => {
         </div>
       ) : create ? (
         <div className="CreateSession">
-          <CreateSession click={backToSessionsHandler} />
+          <CreateSession click={backToSessionsHandler} onSave={handleSaveSession} />
         </div>
       ) : (
         <div className="sessions">
@@ -38,11 +47,10 @@ const Session = () => {
             <SessionSearchbar createHandle={createHandler} />
           </div>
           <div className="card">
-            <SessionCard clickHandle={viewHandler} />
+            <SessionCard sessions={sessions} clickHandle={viewHandler} />
           </div>
         </div>
       )}
-
       <div className="rightSideBar">
         <RightSideBar />
       </div>
